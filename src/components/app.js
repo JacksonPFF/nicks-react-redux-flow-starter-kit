@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
-import { browserHistory, Router } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { createBrowserHistory as history } from 'history';
 import { Provider } from 'react-redux';
+import Home from '../routes/home/components/Home.component';
 
 type Props = {
   store: Object,
@@ -22,9 +24,9 @@ export default class extends PureComponent<void, Props, State> {
 
     return (
       <Provider store={store}>
-        <div style={{ height: '100%' }}>
-          <Router history={browserHistory} routes={routes} />
-        </div>
+        <Router>
+          <Route path="/" component={Home} />
+        </Router>
       </Provider>
     );
   }

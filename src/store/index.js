@@ -10,7 +10,9 @@ import epics from '../epics';
 import type { Store } from '../types';
 
 export default (initalState: Object = {}): Store => {
-  const epicMiddleware = createEpicMiddleware(epics);
+  //const epicMiddleware = createEpicMiddleware(epics);
+  const epicMiddleware = createEpicMiddleware();
+
   let composeEnhancers = compose;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -31,6 +33,7 @@ export default (initalState: Object = {}): Store => {
   );
 
   store.asyncReducers = {};
+  epicMiddleware.run(epics);
 
   return store;
 };

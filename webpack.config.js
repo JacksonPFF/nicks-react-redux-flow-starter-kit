@@ -6,10 +6,10 @@ const config = require('./config');
 
 const plugins = [
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin(),
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(config.env)
-  }),
+  new webpack.NoEmitOnErrorsPlugin(),
+  // new webpack.DefinePlugin({
+  //   'process.env.NODE_ENV': JSON.stringify(config.env)
+  // }),
 ];
 
 if (config.__PROD__) {
@@ -27,7 +27,8 @@ if (config.__PROD__) {
 }
 
 module.exports = {
-  devtool: 'source-map',
+  mode: 'development',
+  devtool: 'inline-source-map',
   devServer: { inline: true },
   entry: {
     app: config.__DEV__
@@ -40,7 +41,7 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.js?$/,
         loader: 'babel-loader',

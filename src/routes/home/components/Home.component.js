@@ -8,7 +8,7 @@ import {
 
 type Props = {
   counter: number,
-  addCounter: Function,
+  addCounter: Function, 
   addTwoCounter: Function,
 };
 type State = Object;

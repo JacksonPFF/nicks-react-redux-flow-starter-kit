@@ -1,4 +1,6 @@
 import { COUNTER } from '../constants/actionTypes';
+import { delay, mapTo } from 'rxjs/operators';
+import { ofType } from 'redux-observable';
 
 type ActionsObservable = {
   source: Object,
@@ -7,6 +9,8 @@ type ActionsObservable = {
 }
 
 export const doubleClick = (action$: ActionsObservable) =>
-  action$.ofType(COUNTER.doubleClick)
-    .delay(1000)
-    .mapTo({ type: COUNTER.doubleAdd });
+  action$.pipe(
+    ofType(COUNTER.doubleClick),
+    delay(1000),
+    mapTo({ type: COUNTER.doubleAdd })
+  );
