@@ -5,6 +5,7 @@ import {
   Menu,
   Icon,
 } from 'antd';
+import Home from '../routes/home/components/Home.component';
 
 const {
   Header,
@@ -51,7 +52,7 @@ export default class extends PureComponent<void, Props, State> {
           </Menu>
         </Header>
         <Content>
-          {children}
+          <Home></Home>
         </Content>
         <Footer>React & Redux (with Flow) Starter Kit @ 2017</Footer>
       </Layout>

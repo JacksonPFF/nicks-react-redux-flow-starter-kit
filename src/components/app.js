@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { createBrowserHistory as history } from 'history';
 import { Provider } from 'react-redux';
 import Home from '../routes/home/components/Home.component';
+import Root from '../layout';
 
 type Props = {
   store: Object,
@@ -25,7 +26,7 @@ export default class extends PureComponent<void, Props, State> {
     return (
       <Provider store={store}>
         <Router>
-          <Route path="/" component={Home} />
+          <Route path="/" component={Root} />
         </Router>
       </Provider>
     );

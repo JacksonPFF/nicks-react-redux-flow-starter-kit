@@ -29,7 +29,7 @@ if (config.__PROD__) {
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
-  devServer: { inline: true },
+  devServer: { historyApiFallback: true },
   entry: {
     app: config.__DEV__
       ? ['./src/app'].concat('webpack-hot-middleware/client?reload=true&timeout=10000')

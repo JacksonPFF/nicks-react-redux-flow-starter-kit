@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+//import { routerReducer } from 'react-router-redux';
 import counter from './counter';
 import type { Store } from '../types';
 
@@ -13,7 +13,7 @@ type Reducer = {
  */
 export const makeRootReducer = (asyncReducers: Reducer) => (
   combineReducers({
-    routing: routerReducer,
+    //routing: routerReducer,
     counter,
     ...asyncReducers,
   })
